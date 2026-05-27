@@ -2,12 +2,13 @@ import { Link } from "@tanstack/react-router";
 import { Sparkles } from "lucide-react";
 
 const links = [
-  { href: "#services", label: "Services" },
-  { href: "#portfolio", label: "Portfolio" },
-  { href: "#process", label: "Process" },
-  { href: "#pricing", label: "Pricing" },
-  { href: "#contact", label: "Contact" },
-];
+  { to: "/services", label: "Services" },
+  { to: "/portfolio", label: "Portfolio" },
+  { to: "/process", label: "Process" },
+  { to: "/pricing", label: "Pricing" },
+  { to: "/about", label: "About" },
+  { to: "/contact", label: "Contact" },
+] as const;
 
 export function Nav() {
   return (
@@ -21,19 +22,24 @@ export function Nav() {
             NexaForge<span className="text-gradient"> AI</span>
           </span>
         </Link>
-        <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
+        <nav className="hidden md:flex items-center gap-7 text-sm text-muted-foreground">
           {links.map((l) => (
-            <a key={l.href} href={l.href} className="hover:text-foreground transition-colors">
+            <Link
+              key={l.to}
+              to={l.to}
+              className="hover:text-foreground transition-colors"
+              activeProps={{ className: "text-foreground" }}
+            >
               {l.label}
-            </a>
+            </Link>
           ))}
         </nav>
-        <a
-          href="#contact"
+        <Link
+          to="/contact"
           className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-cyan px-5 py-2 text-sm font-semibold text-primary-foreground shadow-[0_0_24px_-4px_var(--color-primary)] hover:shadow-[0_0_40px_-2px_var(--color-primary)] transition-shadow"
         >
           Book a Call
-        </a>
+        </Link>
       </div>
     </header>
   );

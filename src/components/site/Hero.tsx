@@ -1,8 +1,9 @@
 import { ArrowRight, Play } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 
 export function Hero() {
   return (
-    <section className="relative pt-32 pb-24 overflow-hidden">
+    <section className="relative pt-20 pb-24 overflow-hidden">
       <div className="absolute inset-0 bg-grid pointer-events-none" />
       <div className="absolute top-20 left-1/2 -translate-x-1/2 h-[500px] w-[500px] rounded-full bg-primary/20 blur-[120px] pointer-events-none" />
 
@@ -26,20 +27,20 @@ export function Hero() {
         </p>
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-cyan px-7 py-3.5 text-sm font-semibold text-primary-foreground glow-purple hover:scale-[1.02] transition-transform"
           >
             Get Your Free AI Audit
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </a>
-          <a
-            href="#portfolio"
+          </Link>
+          <Link
+            to="/portfolio"
             className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 backdrop-blur px-6 py-3.5 text-sm font-semibold hover:bg-surface transition-colors"
           >
             <Play className="h-4 w-4 text-cyan" />
-            Watch 90s Demo
-          </a>
+            See Case Studies
+          </Link>
         </div>
 
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-px max-w-4xl mx-auto rounded-2xl overflow-hidden border border-border bg-border">

@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Nav } from "@/components/site/Nav";
+import { SiteLayout } from "@/components/site/SiteLayout";
 import { Hero } from "@/components/site/Hero";
 import { Marquee } from "@/components/site/Marquee";
 import { Services } from "@/components/site/Services";
@@ -8,7 +8,6 @@ import { Process } from "@/components/site/Process";
 import { Testimonials } from "@/components/site/Testimonials";
 import { Pricing } from "@/components/site/Pricing";
 import { CTA } from "@/components/site/CTA";
-import { Footer } from "@/components/site/Footer";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -29,8 +28,8 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="min-h-screen">
-      <Nav />
-      <main>
+      {/* Index reuses SiteLayout-less structure so Hero can own the top */}
+      <SiteLayout>
         <Hero />
         <Marquee />
         <Services />
@@ -39,8 +38,7 @@ function Index() {
         <Testimonials />
         <Pricing />
         <CTA />
-      </main>
-      <Footer />
+      </SiteLayout>
     </div>
   );
 }
