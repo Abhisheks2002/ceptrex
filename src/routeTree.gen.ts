@@ -13,6 +13,7 @@ import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ProcessRouteImport } from './routes/process'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
+import { Route as N8nProjectsRouteImport } from './routes/n8n-projects'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -37,6 +38,11 @@ const PortfolioRoute = PortfolioRouteImport.update({
   path: '/portfolio',
   getParentRoute: () => rootRouteImport,
 } as any)
+const N8nProjectsRoute = N8nProjectsRouteImport.update({
+  id: '/n8n-projects',
+  path: '/n8n-projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -57,6 +63,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/n8n-projects': typeof N8nProjectsRoute
   '/portfolio': typeof PortfolioRoute
   '/pricing': typeof PricingRoute
   '/process': typeof ProcessRoute
@@ -66,6 +73,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/n8n-projects': typeof N8nProjectsRoute
   '/portfolio': typeof PortfolioRoute
   '/pricing': typeof PricingRoute
   '/process': typeof ProcessRoute
@@ -76,6 +84,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/n8n-projects': typeof N8nProjectsRoute
   '/portfolio': typeof PortfolioRoute
   '/pricing': typeof PricingRoute
   '/process': typeof ProcessRoute
@@ -87,6 +96,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/n8n-projects'
     | '/portfolio'
     | '/pricing'
     | '/process'
@@ -96,6 +106,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/n8n-projects'
     | '/portfolio'
     | '/pricing'
     | '/process'
@@ -105,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/n8n-projects'
     | '/portfolio'
     | '/pricing'
     | '/process'
@@ -115,6 +127,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  N8nProjectsRoute: typeof N8nProjectsRoute
   PortfolioRoute: typeof PortfolioRoute
   PricingRoute: typeof PricingRoute
   ProcessRoute: typeof ProcessRoute
@@ -151,6 +164,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortfolioRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/n8n-projects': {
+      id: '/n8n-projects'
+      path: '/n8n-projects'
+      fullPath: '/n8n-projects'
+      preLoaderRoute: typeof N8nProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -179,6 +199,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  N8nProjectsRoute: N8nProjectsRoute,
   PortfolioRoute: PortfolioRoute,
   PricingRoute: PricingRoute,
   ProcessRoute: ProcessRoute,
