@@ -45,7 +45,7 @@ function ServiceDetail() {
           <div className="rounded-2xl border border-destructive/30 bg-destructive/5 p-7">
             <div className="text-xs font-mono uppercase tracking-wider text-destructive mb-4">// Problems we solve</div>
             <ul className="space-y-3">
-              {service.problems.map((p) => (
+              {service.problems.map((p: string) => (
                 <li key={p} className="flex items-start gap-3 text-foreground/85">
                   <span className="mt-2 h-1.5 w-1.5 rounded-full bg-destructive shrink-0" />
                   <span>{p}</span>
@@ -56,7 +56,7 @@ function ServiceDetail() {
           <div className="rounded-2xl border border-success/30 bg-success/5 p-7">
             <div className="text-xs font-mono uppercase tracking-wider text-success mb-4">// Outcomes</div>
             <div className="grid grid-cols-3 gap-4">
-              {service.outcomes.map((o) => (
+              {service.outcomes.map((o: { metric: string; label: string }) => (
                 <div key={o.label}>
                   <div className="font-display text-3xl font-bold text-gradient">{o.metric}</div>
                   <div className="text-xs text-muted-foreground mt-1">{o.label}</div>
@@ -70,7 +70,7 @@ function ServiceDetail() {
         <div className="mx-auto max-w-7xl px-6">
           <h2 className="font-display text-3xl md:text-4xl font-bold mb-10">Capabilities</h2>
           <div className="grid md:grid-cols-2 gap-4">
-            {service.capabilities.map((c) => (
+            {service.capabilities.map((c: { title: string; desc: string }) => (
               <div key={c.title} className="rounded-2xl border border-border bg-surface/60 backdrop-blur p-6">
                 <h3 className="font-semibold text-lg mb-2">{c.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{c.desc}</p>
@@ -84,7 +84,7 @@ function ServiceDetail() {
           <div className="rounded-2xl border border-border bg-surface/60 p-6">
             <div className="text-xs font-mono uppercase tracking-wider text-cyan mb-3">// Stack</div>
             <div className="flex flex-wrap gap-2">
-              {service.stack.map((s) => (
+              {service.stack.map((s: string) => (
                 <span key={s} className="px-3 py-1 rounded-full text-xs border border-border bg-surface-elevated">{s}</span>
               ))}
             </div>
@@ -92,7 +92,7 @@ function ServiceDetail() {
           <div className="rounded-2xl border border-border bg-surface/60 p-6">
             <div className="text-xs font-mono uppercase tracking-wider text-cyan mb-3">// Deliverables</div>
             <ul className="space-y-2 text-sm">
-              {service.deliverables.map((d) => (
+              {service.deliverables.map((d: string) => (
                 <li key={d} className="flex items-start gap-2"><Check className="h-4 w-4 text-success mt-0.5 shrink-0" />{d}</li>
               ))}
             </ul>

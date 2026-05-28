@@ -48,7 +48,7 @@ function BlogPost() {
           <h1 className="mt-5 font-display text-4xl md:text-5xl font-bold leading-tight">{post.title}</h1>
           <p className="mt-5 text-lg text-muted-foreground leading-relaxed">{post.excerpt}</p>
           <div className="mt-10 space-y-5 text-foreground/90 leading-relaxed">
-            {post.content.map((p, i) => <p key={i}>{p}</p>)}
+            {post.content.map((p: string, i: number) => <p key={i}>{p}</p>)}
           </div>
         </div>
       </article>

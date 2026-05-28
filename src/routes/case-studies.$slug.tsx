@@ -43,7 +43,7 @@ function CaseDetail() {
           <h1 className="font-display text-4xl md:text-6xl font-bold leading-tight">{study.title}</h1>
           <p className="mt-6 text-lg text-muted-foreground max-w-3xl">{study.summary}</p>
           <div className="mt-10 grid grid-cols-3 gap-4 max-w-2xl">
-            {study.results.map((r) => (
+            {study.results.map((r: { metric: string; label: string }) => (
               <div key={r.label}>
                 <div className={`font-display text-3xl md:text-4xl font-bold bg-gradient-to-br ${study.color} bg-clip-text text-transparent`}>{r.metric}</div>
                 <div className="text-xs text-muted-foreground mt-1">{r.label}</div>
@@ -66,7 +66,7 @@ function CaseDetail() {
           <div>
             <h2 className="font-display text-2xl font-bold mb-4">Architecture</h2>
             <ul className="space-y-2">
-              {study.architecture.map((a) => (
+              {study.architecture.map((a: string) => (
                 <li key={a} className="flex items-start gap-3 text-foreground/85">
                   <Check className="h-4 w-4 text-success mt-1 shrink-0" />{a}
                 </li>
@@ -76,7 +76,7 @@ function CaseDetail() {
           <div>
             <h2 className="font-display text-2xl font-bold mb-3">Stack</h2>
             <div className="flex flex-wrap gap-2">
-              {study.stack.map((s) => (
+              {study.stack.map((s: string) => (
                 <span key={s} className="px-3 py-1.5 rounded-full text-sm border border-border bg-surface/60">{s}</span>
               ))}
             </div>
@@ -109,7 +109,7 @@ function CaseDetail() {
         <div className="mx-auto max-w-7xl px-6">
           <h3 className="font-display text-2xl font-bold mb-6">Related case studies</h3>
           <div className="grid md:grid-cols-3 gap-4">
-            {related.map((c) => (
+            {related.map((c: typeof cases[number]) => (
               <Link key={c.slug} to="/case-studies/$slug" params={{ slug: c.slug }} className="rounded-2xl border border-border bg-surface/60 p-5 hover:border-primary/50 transition-colors">
                 <div className="text-xs text-muted-foreground mb-2">{c.industry}</div>
                 <div className={`font-display text-2xl font-bold bg-gradient-to-br ${c.color} bg-clip-text text-transparent`}>{c.metric}</div>

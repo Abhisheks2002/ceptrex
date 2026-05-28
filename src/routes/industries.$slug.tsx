@@ -44,13 +44,13 @@ function IndustryDetail() {
           <div className="lg:col-span-1 rounded-2xl border border-destructive/30 bg-destructive/5 p-6">
             <div className="text-xs font-mono uppercase tracking-wider text-destructive mb-4">// Pain points</div>
             <ul className="space-y-3 text-sm">
-              {industry.painPoints.map((p) => (
+              {industry.painPoints.map((p: string) => (
                 <li key={p} className="flex gap-2"><span className="text-destructive">×</span>{p}</li>
               ))}
             </ul>
           </div>
           <div className="lg:col-span-2 grid sm:grid-cols-3 gap-4">
-            {industry.solutions.map((s) => (
+            {industry.solutions.map((s: { title: string; desc: string }) => (
               <div key={s.title} className="rounded-2xl border border-border bg-surface/60 p-5">
                 <h3 className="font-semibold mb-2">{s.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
@@ -77,7 +77,7 @@ function IndustryDetail() {
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-xs font-mono uppercase tracking-wider text-cyan mb-4">// Stack</div>
           <div className="flex flex-wrap gap-2">
-            {industry.stack.map((s) => (
+            {industry.stack.map((s: string) => (
               <span key={s} className="px-3 py-1.5 rounded-full text-sm border border-border bg-surface/60">{s}</span>
             ))}
           </div>
