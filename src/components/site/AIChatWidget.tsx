@@ -16,7 +16,7 @@ const KB: { match: RegExp; reply: string }[] = [
   { match: /n8n|automation/i, reply: "We deploy self-hosted n8n in your VPC, Git-versioned, with 24/7 monitoring. Check /n8n-projects for 24 production examples." },
   { match: /voice|phone|call/i, reply: "Voice agents run on Vapi + ElevenLabs with sub-300ms latency. Native EHR & CRM integrations. Starting at $6,950." },
   { match: /healthcare|hipaa|clinic/i, reply: "Yes — we've shipped voice receptionists and patient-intake agents for clinic groups. See /industries/healthcare for our HIPAA-aware approach." },
-  { match: /book|call|demo|audit/i, reply: "Best next step is our free 30-min AI audit. Head to /book-call and pick a slot — or email hello@nexaforge.ai." },
+  { match: /book|call|demo|audit/i, reply: "Best next step is our free 30-min AI audit. Head to /book-call and pick a slot — or email hello@ceptrex.com." },
 ];
 
 function reply(input: string): string {
@@ -27,7 +27,7 @@ function reply(input: string): string {
 export function AIChatWidget() {
   const [open, setOpen] = useState(false);
   const [msgs, setMsgs] = useState<Msg[]>([
-    { role: "assistant", content: "Hi — I'm Nexa, NexaForge's AI consultant. Ask me about AI agents, n8n, WhatsApp AI, pricing or timelines." },
+    { role: "assistant", content: "Hi — I'm Nexa, Ceptrex's AI consultant. Ask me about AI agents, n8n, WhatsApp AI, pricing or timelines." },
   ]);
   const [input, setInput] = useState("");
   const [typing, setTyping] = useState(false);

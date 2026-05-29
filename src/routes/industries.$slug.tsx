@@ -13,7 +13,7 @@ export const Route = createFileRoute("/industries/$slug")({
   head: ({ loaderData }) => ({
     meta: loaderData
       ? [
-          { title: `AI Automation for ${loaderData.industry.name} — NexaForge AI` },
+          { title: `AI Automation for ${loaderData.industry.name} — Ceptrex` },
           { name: "description", content: loaderData.industry.hero },
           { property: "og:title", content: `AI for ${loaderData.industry.name}` },
           { property: "og:description", content: loaderData.industry.hero },

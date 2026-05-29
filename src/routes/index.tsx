@@ -17,13 +17,13 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "NexaForge AI — AI Agents & Automation Agency" },
+      { title: "Ceptrex — AI Agents & Automation Agency" },
       {
         name: "description",
         content:
           "Premium AI automation agency building production-grade agents, n8n workflows, WhatsApp AI and voice agents for high-growth companies in the US, UK, UAE & Europe.",
       },
-      { property: "og:title", content: "NexaForge AI — Automate Everything. Scale Infinitely." },
+      { property: "og:title", content: "Ceptrex — Automate Everything. Scale Infinitely." },
       { property: "og:description", content: "180+ AI systems shipped. $2M+ in client revenue. 28-day delivery." },
     ],
   }),

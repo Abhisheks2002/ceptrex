@@ -7,7 +7,7 @@ export const Route = createFileRoute("/ai-audit")({
   component: Audit,
   head: () => ({
     meta: [
-      { title: "Free AI Audit — NexaForge AI" },
+      { title: "Free AI Audit — Ceptrex" },
       { name: "description", content: "Get a free 30-minute AI audit. We'll map your workflows live and identify the top 3 automation opportunities." },
       { property: "og:title", content: "Free AI Audit" },
       { property: "og:description", content: "Live workflow audit. No pitch. Real recommendations." },

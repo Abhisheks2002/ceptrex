@@ -6,9 +6,9 @@ export const Route = createFileRoute("/book-call")({
   component: BookCall,
   head: () => ({
     meta: [
-      { title: "Book a Call — NexaForge AI" },
-      { name: "description", content: "Book a free 30-minute strategy call with NexaForge AI. We'll map your workflows and identify your top automation opportunities." },
-      { property: "og:title", content: "Book a Call — NexaForge AI" },
+      { title: "Book a Call — Ceptrex" },
+      { name: "description", content: "Book a free 30-minute strategy call with Ceptrex. We'll map your workflows and identify your top automation opportunities." },
+      { property: "og:title", content: "Book a Call — Ceptrex" },
       { property: "og:description", content: "Free 30-min strategy call. No pitch." },
     ],
   }),
@@ -27,7 +27,7 @@ function BookCall() {
             <Item text="1-page roadmap delivered within 48h" />
             <Item text="No-pitch guarantee" />
             <div className="rounded-2xl border border-border bg-surface/60 p-5 text-sm text-muted-foreground">
-              Prefer email? Reach us at <a className="text-cyan" href="mailto:hello@nexaforge.ai">hello@nexaforge.ai</a> — we reply within 4 hours.
+              Prefer email? Reach us at <a className="text-cyan" href="mailto:hello@ceptrex.com">hello@ceptrex.com</a> — we reply within 4 hours.
             </div>
           </aside>
           <div className="lg:col-span-3 rounded-3xl border border-border bg-surface/60 backdrop-blur p-7">
@@ -38,7 +38,7 @@ function BookCall() {
             <div className="aspect-[4/5] sm:aspect-[5/4] rounded-2xl border border-border bg-surface-elevated/60 flex flex-col items-center justify-center text-center p-8">
               <div className="font-display text-2xl font-bold mb-2">Schedule on Cal.com</div>
               <p className="text-sm text-muted-foreground mb-5">Embedded scheduler placeholder. Connect your Cal.com or Calendly to surface live availability here.</p>
-              <a href="https://cal.com/nexaforge/strategy" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-cyan px-6 py-3 text-sm font-semibold text-primary-foreground">
+              <a href="https://cal.com/ceptrex/strategy" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-cyan px-6 py-3 text-sm font-semibold text-primary-foreground">
                 Open scheduler
               </a>
               <Link to="/ai-audit" className="mt-4 text-xs text-muted-foreground hover:text-foreground">or request via the audit form →</Link>

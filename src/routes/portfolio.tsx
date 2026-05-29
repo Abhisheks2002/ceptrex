@@ -16,9 +16,9 @@ const extra = [
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
     meta: [
-      { title: "Portfolio — NexaForge AI" },
+      { title: "Portfolio — Ceptrex" },
       { name: "description", content: "180+ AI agents shipped across SaaS, healthcare, real estate, e-commerce, legal, fintech and logistics." },
-      { property: "og:title", content: "Portfolio — NexaForge AI" },
+      { property: "og:title", content: "Portfolio — Ceptrex" },
       { property: "og:description", content: "Case studies and measurable results from 180+ AI projects." },
     ],
   }),

@@ -5,10 +5,10 @@ import { Check } from "lucide-react";
 export const Route = createFileRoute("/tech-stack")({
   head: () => ({
     meta: [
-      { title: "Tech Stack — NexaForge AI" },
+      { title: "Tech Stack — Ceptrex" },
       { name: "description", content: "The full-stack production stack we use to ship AI agents, n8n automations and WhatsApp AI: Next.js, TanStack, Supabase, OpenAI, Anthropic, n8n, Vercel, Stripe and more." },
-      { property: "og:title", content: "Tech Stack — NexaForge AI" },
-      { property: "og:description", content: "Production stack behind every NexaForge AI build." },
+      { property: "og:title", content: "Tech Stack — Ceptrex" },
+      { property: "og:description", content: "Production stack behind every Ceptrex build." },
     ],
     links: [{ rel: "canonical", href: "https://ceptrex.lovable.app/tech-stack" }],
   }),

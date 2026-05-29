@@ -11,7 +11,7 @@ export function Footer() {
               <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-cyan">
                 <Sparkles className="h-4 w-4 text-primary-foreground" />
               </span>
-              <span className="font-display font-bold text-lg">NexaForge<span className="text-gradient"> AI</span></span>
+              <span className="font-display font-bold text-lg">Ceptrex<span className="text-gradient"> AI</span></span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Automate everything. Scale infinitely. Production-grade AI agents and
@@ -19,7 +19,7 @@ export function Footer() {
             </p>
             <div className="mt-5 text-xs text-muted-foreground space-y-1">
               <div>Stockholm · Dubai · New York · London</div>
-              <div>hello@nexaforge.ai</div>
+              <div>hello@ceptrex.com</div>
             </div>
           </div>
           <FooterCol title="Services" links={[
@@ -55,7 +55,7 @@ export function Footer() {
           ]} />
         </div>
         <div className="mt-12 pt-6 border-t border-border/60 flex flex-wrap items-center justify-between gap-4 text-xs text-muted-foreground">
-          <div>© 2026 NexaForge AI. All rights reserved.</div>
+          <div>© 2026 Ceptrex. All rights reserved.</div>
           <div className="font-mono">v1.0.0 · status: <span className="text-success">all systems operational</span></div>
         </div>
       </div>

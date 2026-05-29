@@ -6,7 +6,7 @@ export const Route = createFileRoute("/resources")({
   component: Resources,
   head: () => ({
     meta: [
-      { title: "Resources — NexaForge AI" },
+      { title: "Resources — Ceptrex" },
       { name: "description", content: "Free playbooks, calculators, templates and guides for shipping AI in production." },
       { property: "og:title", content: "Free AI automation resources" },
       { property: "og:description", content: "Templates, playbooks and calculators we use with clients." },

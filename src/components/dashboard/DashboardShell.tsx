@@ -18,7 +18,7 @@ export function DashboardShell({ children, title }: { children: ReactNode; title
           <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-cyan">
             <Sparkles className="h-4 w-4 text-primary-foreground" />
           </span>
-          <span className="font-display font-bold">NexaForge<span className="text-gradient"> AI</span></span>
+          <span className="font-display font-bold">Ceptrex<span className="text-gradient"> AI</span></span>
         </Link>
         <nav className="flex-1 p-4 space-y-1">
           {navItems.map((item) => {

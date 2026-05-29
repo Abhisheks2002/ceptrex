@@ -14,9 +14,9 @@ const faqs = [
 export const Route = createFileRoute("/pricing")({
   head: () => ({
     meta: [
-      { title: "Pricing — NexaForge AI" },
+      { title: "Pricing — Ceptrex" },
       { name: "description", content: "Transparent, fixed-price AI agency packages. Launch from $4,950. Scale from $12,500. Enterprise on retainer." },
-      { property: "og:title", content: "Pricing — NexaForge AI" },
+      { property: "og:title", content: "Pricing — Ceptrex" },
       { property: "og:description", content: "Fixed-price AI builds. No surprises." },
     ],
   }),

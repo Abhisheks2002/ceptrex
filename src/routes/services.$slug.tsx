@@ -13,9 +13,9 @@ export const Route = createFileRoute("/services/$slug")({
   head: ({ loaderData }) => ({
     meta: loaderData
       ? [
-          { title: `${loaderData.service.title} — NexaForge AI` },
+          { title: `${loaderData.service.title} — Ceptrex` },
           { name: "description", content: loaderData.service.tagline },
-          { property: "og:title", content: `${loaderData.service.title} — NexaForge AI` },
+          { property: "og:title", content: `${loaderData.service.title} — Ceptrex` },
           { property: "og:description", content: loaderData.service.tagline },
         ]
       : [],

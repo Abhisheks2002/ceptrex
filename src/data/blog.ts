@@ -90,7 +90,7 @@ export const posts: BlogPost[] = [
     category: "Engineering",
     readTime: "10 min",
     date: "2026-03-04",
-    author: "NexaForge Engineering",
+    author: "Ceptrex Engineering",
     content: [
       "Models: GPT-4o for reasoning, Claude 3.5 Sonnet for writing, o1-mini for cheap classification, Llama 3.1 on Groq for latency-critical inference.",
       "Orchestration: LangGraph for agents, n8n for automations, Inngest for durable workflows.",

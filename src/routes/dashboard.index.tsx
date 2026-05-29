@@ -5,7 +5,7 @@ import { TrendingUp, Users, DollarSign, Calendar, ArrowUpRight } from "lucide-re
 export const Route = createFileRoute("/dashboard/")({
   head: () => ({
     meta: [
-      { title: "Admin Dashboard — NexaForge AI" },
+      { title: "Admin Dashboard — Ceptrex" },
       { name: "robots", content: "noindex,nofollow" },
     ],
   }),

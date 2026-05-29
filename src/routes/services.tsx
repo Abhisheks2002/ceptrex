@@ -70,13 +70,13 @@ const deepDives = [
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — NexaForge AI" },
+      { title: "Services — Ceptrex" },
       {
         name: "description",
         content:
           "AI agents, n8n workflows, WhatsApp AI, CRM intelligence, custom chatbots and fractional CAIO services for high-growth companies.",
       },
-      { property: "og:title", content: "Services — NexaForge AI" },
+      { property: "og:title", content: "Services — Ceptrex" },
       { property: "og:description", content: "Six productised AI services with fixed scope and measurable ROI." },
     ],
   }),

@@ -6,9 +6,9 @@ import { ArrowRight, Mail, MessageCircle, Calendar } from "lucide-react";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — NexaForge AI" },
+      { title: "Contact — Ceptrex" },
       { name: "description", content: "Book a free 30-minute AI strategy call. We reply within 4 hours and never pitch on the call." },
-      { property: "og:title", content: "Contact — NexaForge AI" },
+      { property: "og:title", content: "Contact — Ceptrex" },
       { property: "og:description", content: "Book your free AI audit." },
     ],
   }),
@@ -97,15 +97,15 @@ function ContactPage() {
               icon={Calendar}
               title="Book direct"
               line="Pick a 30-min slot on our shared calendar"
-              cta="cal.com/nexaforge"
+              cta="cal.com/ceptrex"
               href="https://cal.com"
             />
             <ContactCard
               icon={Mail}
               title="Email"
               line="A senior engineer will reply"
-              cta="hello@nexaforge.ai"
-              href="mailto:hello@nexaforge.ai"
+              cta="hello@ceptrex.com"
+              href="mailto:hello@ceptrex.com"
             />
             <ContactCard
               icon={MessageCircle}

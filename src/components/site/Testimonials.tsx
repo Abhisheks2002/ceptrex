@@ -1,5 +1,5 @@
 const quotes = [
-  { q: "NexaForge replaced our 6-person SDR team with one agent. Pipeline 4x'd in a quarter.", a: "Marcus Chen", r: "VP Sales, Vantor SaaS" },
+  { q: "Ceptrex replaced our 6-person SDR team with one agent. Pipeline 4x'd in a quarter.", a: "Marcus Chen", r: "VP Sales, Vantor SaaS" },
   { q: "They shipped a Salesforce-connected WhatsApp agent in 19 days. Game changer for UAE market.", a: "Aisha Al-Rashid", r: "CMO, Levant Properties" },
   { q: "Best agency we've worked with. Senior engineers, no fluff, real ROI dashboards from day one.", a: "Daniel Pierre", r: "CTO, Helio Health" },
 ];

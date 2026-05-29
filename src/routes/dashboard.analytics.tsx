@@ -4,7 +4,7 @@ import { DashboardShell } from "@/components/dashboard/DashboardShell";
 export const Route = createFileRoute("/dashboard/analytics")({
   head: () => ({
     meta: [
-      { title: "Analytics — NexaForge AI Admin" },
+      { title: "Analytics — Ceptrex Admin" },
       { name: "robots", content: "noindex,nofollow" },
     ],
   }),

@@ -21,9 +21,9 @@ const principles = [
 export const Route = createFileRoute("/process")({
   head: () => ({
     meta: [
-      { title: "Our Process — NexaForge AI" },
+      { title: "Our Process — Ceptrex" },
       { name: "description", content: "From kickoff to production in 28 days. Discovery, blueprint, two build sprints, launch and 90 days of optimisation." },
-      { property: "og:title", content: "Our Process — NexaForge AI" },
+      { property: "og:title", content: "Our Process — Ceptrex" },
       { property: "og:description", content: "Senior-only delivery, fixed price, your code in your cloud." },
     ],
   }),

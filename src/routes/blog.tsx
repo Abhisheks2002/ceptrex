@@ -6,9 +6,9 @@ export const Route = createFileRoute("/blog")({
   component: BlogIndex,
   head: () => ({
     meta: [
-      { title: "Blog — NexaForge AI" },
+      { title: "Blog — Ceptrex" },
       { name: "description", content: "Playbooks, deep-dives, and field notes on building production AI agents and automation systems." },
-      { property: "og:title", content: "NexaForge AI Blog" },
+      { property: "og:title", content: "Ceptrex Blog" },
       { property: "og:description", content: "Playbooks for AI agents, n8n, WhatsApp AI and voice." },
     ],
   }),

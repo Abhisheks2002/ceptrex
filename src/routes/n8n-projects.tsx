@@ -22,13 +22,13 @@ import {
 export const Route = createFileRoute("/n8n-projects")({
   head: () => ({
     meta: [
-      { title: "n8n Automation Projects — NexaForge AI" },
+      { title: "n8n Automation Projects — Ceptrex" },
       {
         name: "description",
         content:
           "24 production-grade n8n automation projects: AI lead-gen, WhatsApp bots, RAG chatbots, CRM sync, invoice OCR, social-media pipelines and more.",
       },
-      { property: "og:title", content: "n8n Automation Projects — NexaForge AI" },
+      { property: "og:title", content: "n8n Automation Projects — Ceptrex" },
       {
         property: "og:description",
         content: "Real-world n8n workflows shipping in production across 12 industries.",

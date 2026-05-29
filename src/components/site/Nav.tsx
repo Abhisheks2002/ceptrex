@@ -23,7 +23,7 @@ export function Nav() {
             <Sparkles className="h-4 w-4 text-primary-foreground" />
           </span>
           <span className="font-display font-bold text-lg tracking-tight">
-            NexaForge<span className="text-gradient"> AI</span>
+            Ceptrex<span className="text-gradient"> AI</span>
           </span>
         </Link>
         <nav className="hidden lg:flex items-center gap-7 text-sm text-muted-foreground">

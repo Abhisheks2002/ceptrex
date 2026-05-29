@@ -14,7 +14,7 @@ export const Route = createFileRoute("/case-studies/$slug")({
   head: ({ loaderData }) => ({
     meta: loaderData
       ? [
-          { title: `${loaderData.study.title} — NexaForge AI` },
+          { title: `${loaderData.study.title} — Ceptrex` },
           { name: "description", content: loaderData.study.summary },
           { property: "og:title", content: loaderData.study.title },
           { property: "og:description", content: loaderData.study.summary },

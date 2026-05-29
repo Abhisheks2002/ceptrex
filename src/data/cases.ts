@@ -139,7 +139,7 @@ export const cases: CaseStudy[] = [
     ],
     stack: ["Vapi", "HubSpot", "Chili Piper", "OpenAI"],
     testimonial: {
-      quote: "NexaForge replaced our 6-person SDR team with one agent. Pipeline 4×'d in a quarter.",
+      quote: "Ceptrex replaced our 6-person SDR team with one agent. Pipeline 4×'d in a quarter.",
       author: "Marcus Chen",
       role: "VP Sales, Vantor SaaS",
     },

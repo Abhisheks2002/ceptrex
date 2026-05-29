@@ -6,9 +6,9 @@ export const Route = createFileRoute("/case-studies")({
   component: CaseStudiesIndex,
   head: () => ({
     meta: [
-      { title: "Case Studies — NexaForge AI" },
+      { title: "Case Studies — Ceptrex" },
       { name: "description", content: "Detailed case studies of AI agents and automation systems we've shipped across SaaS, real estate, healthcare and finance." },
-      { property: "og:title", content: "AI Case Studies — NexaForge AI" },
+      { property: "og:title", content: "AI Case Studies — Ceptrex" },
       { property: "og:description", content: "Results that compound. Real metrics from real deployments." },
     ],
   }),

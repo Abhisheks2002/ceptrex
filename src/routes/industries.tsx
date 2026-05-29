@@ -6,9 +6,9 @@ export const Route = createFileRoute("/industries")({
   component: IndustriesIndex,
   head: () => ({
     meta: [
-      { title: "Industries — NexaForge AI" },
+      { title: "Industries — Ceptrex" },
       { name: "description", content: "AI automation playbooks for healthcare, real estate, e-commerce, finance, SaaS and logistics." },
-      { property: "og:title", content: "Industries — NexaForge AI" },
+      { property: "og:title", content: "Industries — Ceptrex" },
       { property: "og:description", content: "Industry-specific AI playbooks." },
     ],
   }),

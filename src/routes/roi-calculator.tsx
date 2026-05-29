@@ -7,7 +7,7 @@ export const Route = createFileRoute("/roi-calculator")({
   component: ROI,
   head: () => ({
     meta: [
-      { title: "AI ROI Calculator — NexaForge AI" },
+      { title: "AI ROI Calculator — Ceptrex" },
       { name: "description", content: "Estimate the annual cost of manual work in your business and how much AI automation could save you." },
       { property: "og:title", content: "AI ROI Calculator" },
       { property: "og:description", content: "How much is manual work costing you?" },

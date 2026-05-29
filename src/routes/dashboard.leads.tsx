@@ -6,7 +6,7 @@ import { Search, Download } from "lucide-react";
 export const Route = createFileRoute("/dashboard/leads")({
   head: () => ({
     meta: [
-      { title: "Leads — NexaForge AI Admin" },
+      { title: "Leads — Ceptrex Admin" },
       { name: "robots", content: "noindex,nofollow" },
     ],
   }),

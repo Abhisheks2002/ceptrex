@@ -25,9 +25,9 @@ const offices = [
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — NexaForge AI" },
+      { title: "About — Ceptrex" },
       { name: "description", content: "We're a senior-only AI agency from Stockholm, Dubai and New York shipping production-grade AI agents to high-growth companies." },
-      { property: "og:title", content: "About — NexaForge AI" },
+      { property: "og:title", content: "About — Ceptrex" },
       { property: "og:description", content: "A senior-only AI agency operating across three continents." },
     ],
   }),
@@ -41,7 +41,7 @@ function AboutPage() {
         eyebrow="About"
         title="Senior AI engineers,"
         highlight="three continents, one playbook."
-        subtitle="NexaForge was founded in 2023 by ex-Klarna, DeepMind and Stripe operators who got tired of watching agencies overpromise and under-ship on AI."
+        subtitle="Ceptrex was founded in 2023 by ex-Klarna, DeepMind and Stripe operators who got tired of watching agencies overpromise and under-ship on AI."
       />
 
       <section className="py-20">
@@ -60,7 +60,7 @@ function AboutPage() {
               We do — every day — for companies in the US, UK, UAE and Europe.
               Our team has shipped AI to production at Klarna, DeepMind, Stripe,
               Spotify, and a dozen high-growth scale-ups. That experience is
-              what you hire when you hire NexaForge.
+              what you hire when you hire Ceptrex.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 gap-4">
