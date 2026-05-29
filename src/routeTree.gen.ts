@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as TechStackRouteImport } from './routes/tech-stack'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as RoiCalculatorRouteImport } from './routes/roi-calculator'
 import { Route as ResourcesRouteImport } from './routes/resources'
@@ -35,6 +36,11 @@ import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TechStackRoute = TechStackRouteImport.update({
+  id: '/tech-stack',
+  path: '/tech-stack',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesRoute = ServicesRouteImport.update({
@@ -160,6 +166,7 @@ export interface FileRoutesByFullPath {
   '/resources': typeof ResourcesRoute
   '/roi-calculator': typeof RoiCalculatorRoute
   '/services': typeof ServicesRouteWithChildren
+  '/tech-stack': typeof TechStackRoute
   '/terms': typeof TermsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
@@ -184,6 +191,7 @@ export interface FileRoutesByTo {
   '/resources': typeof ResourcesRoute
   '/roi-calculator': typeof RoiCalculatorRoute
   '/services': typeof ServicesRouteWithChildren
+  '/tech-stack': typeof TechStackRoute
   '/terms': typeof TermsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
@@ -209,6 +217,7 @@ export interface FileRoutesById {
   '/resources': typeof ResourcesRoute
   '/roi-calculator': typeof RoiCalculatorRoute
   '/services': typeof ServicesRouteWithChildren
+  '/tech-stack': typeof TechStackRoute
   '/terms': typeof TermsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
@@ -235,6 +244,7 @@ export interface FileRouteTypes {
     | '/resources'
     | '/roi-calculator'
     | '/services'
+    | '/tech-stack'
     | '/terms'
     | '/blog/$slug'
     | '/case-studies/$slug'
@@ -259,6 +269,7 @@ export interface FileRouteTypes {
     | '/resources'
     | '/roi-calculator'
     | '/services'
+    | '/tech-stack'
     | '/terms'
     | '/blog/$slug'
     | '/case-studies/$slug'
@@ -283,6 +294,7 @@ export interface FileRouteTypes {
     | '/resources'
     | '/roi-calculator'
     | '/services'
+    | '/tech-stack'
     | '/terms'
     | '/blog/$slug'
     | '/case-studies/$slug'
@@ -308,6 +320,7 @@ export interface RootRouteChildren {
   ResourcesRoute: typeof ResourcesRoute
   RoiCalculatorRoute: typeof RoiCalculatorRoute
   ServicesRoute: typeof ServicesRouteWithChildren
+  TechStackRoute: typeof TechStackRoute
   TermsRoute: typeof TermsRoute
 }
 
@@ -318,6 +331,13 @@ declare module '@tanstack/react-router' {
       path: '/terms'
       fullPath: '/terms'
       preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tech-stack': {
+      id: '/tech-stack'
+      path: '/tech-stack'
+      fullPath: '/tech-stack'
+      preLoaderRoute: typeof TechStackRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services': {
@@ -545,18 +565,9 @@ const rootRouteChildren: RootRouteChildren = {
   ResourcesRoute: ResourcesRoute,
   RoiCalculatorRoute: RoiCalculatorRoute,
   ServicesRoute: ServicesRouteWithChildren,
+  TechStackRoute: TechStackRoute,
   TermsRoute: TermsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
