@@ -11,8 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as TechStackRouteImport } from './routes/tech-stack'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as RoiCalculatorRouteImport } from './routes/roi-calculator'
+import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as ProcessRouteImport } from './routes/process'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
@@ -46,6 +48,11 @@ const TechStackRoute = TechStackRouteImport.update({
   path: '/tech-stack',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
@@ -54,6 +61,11 @@ const ServicesRoute = ServicesRouteImport.update({
 const RoiCalculatorRoute = RoiCalculatorRouteImport.update({
   id: '/roi-calculator',
   path: '/roi-calculator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
+  id: '/robots.txt',
+  path: '/robots.txt',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ResourcesRoute = ResourcesRouteImport.update({
@@ -182,8 +194,10 @@ export interface FileRoutesByFullPath {
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/process': typeof ProcessRoute
   '/resources': typeof ResourcesRoute
+  '/robots.txt': typeof RobotsDottxtRoute
   '/roi-calculator': typeof RoiCalculatorRoute
   '/services': typeof ServicesRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tech-stack': typeof TechStackRoute
   '/terms': typeof TermsRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -210,8 +224,10 @@ export interface FileRoutesByTo {
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/process': typeof ProcessRoute
   '/resources': typeof ResourcesRoute
+  '/robots.txt': typeof RobotsDottxtRoute
   '/roi-calculator': typeof RoiCalculatorRoute
   '/services': typeof ServicesRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tech-stack': typeof TechStackRoute
   '/terms': typeof TermsRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -239,8 +255,10 @@ export interface FileRoutesById {
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/process': typeof ProcessRoute
   '/resources': typeof ResourcesRoute
+  '/robots.txt': typeof RobotsDottxtRoute
   '/roi-calculator': typeof RoiCalculatorRoute
   '/services': typeof ServicesRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tech-stack': typeof TechStackRoute
   '/terms': typeof TermsRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -269,8 +287,10 @@ export interface FileRouteTypes {
     | '/privacy-policy'
     | '/process'
     | '/resources'
+    | '/robots.txt'
     | '/roi-calculator'
     | '/services'
+    | '/sitemap.xml'
     | '/tech-stack'
     | '/terms'
     | '/blog/$slug'
@@ -297,8 +317,10 @@ export interface FileRouteTypes {
     | '/privacy-policy'
     | '/process'
     | '/resources'
+    | '/robots.txt'
     | '/roi-calculator'
     | '/services'
+    | '/sitemap.xml'
     | '/tech-stack'
     | '/terms'
     | '/blog/$slug'
@@ -325,8 +347,10 @@ export interface FileRouteTypes {
     | '/privacy-policy'
     | '/process'
     | '/resources'
+    | '/robots.txt'
     | '/roi-calculator'
     | '/services'
+    | '/sitemap.xml'
     | '/tech-stack'
     | '/terms'
     | '/blog/$slug'
@@ -354,8 +378,10 @@ export interface RootRouteChildren {
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   ProcessRoute: typeof ProcessRoute
   ResourcesRoute: typeof ResourcesRoute
+  RobotsDottxtRoute: typeof RobotsDottxtRoute
   RoiCalculatorRoute: typeof RoiCalculatorRoute
   ServicesRoute: typeof ServicesRouteWithChildren
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TechStackRoute: typeof TechStackRoute
   TermsRoute: typeof TermsRoute
   DashboardAnalyticsRoute: typeof DashboardAnalyticsRoute
@@ -379,6 +405,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TechStackRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
@@ -391,6 +424,13 @@ declare module '@tanstack/react-router' {
       path: '/roi-calculator'
       fullPath: '/roi-calculator'
       preLoaderRoute: typeof RoiCalculatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/robots.txt': {
+      id: '/robots.txt'
+      path: '/robots.txt'
+      fullPath: '/robots.txt'
+      preLoaderRoute: typeof RobotsDottxtRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/resources': {
@@ -623,8 +663,10 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   ProcessRoute: ProcessRoute,
   ResourcesRoute: ResourcesRoute,
+  RobotsDottxtRoute: RobotsDottxtRoute,
   RoiCalculatorRoute: RoiCalculatorRoute,
   ServicesRoute: ServicesRouteWithChildren,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TechStackRoute: TechStackRoute,
   TermsRoute: TermsRoute,
   DashboardAnalyticsRoute: DashboardAnalyticsRoute,
@@ -634,13 +676,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

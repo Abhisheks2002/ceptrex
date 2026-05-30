@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
 import { SiteLayout, PageHeader } from "@/components/site/SiteLayout";
-import { ArrowRight, Mail, MessageCircle, Calendar } from "lucide-react";
+import { ArrowRight, Mail, MessageCircle, Calendar, Loader2 } from "lucide-react";
+import { submitLead } from "@/lib/leads.functions";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -17,6 +19,9 @@ export const Route = createFileRoute("/contact")({
 
 function ContactPage() {
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const send = useServerFn(submitLead);
 
   return (
     <SiteLayout>
@@ -40,9 +45,29 @@ function ContactPage() {
             ) : (
               <form
                 className="space-y-5"
-                onSubmit={(e) => {
+                onSubmit={async (e) => {
                   e.preventDefault();
-                  setSent(true);
+                  setError(null);
+                  setSubmitting(true);
+                  const fd = new FormData(e.currentTarget);
+                  try {
+                    await send({
+                      data: {
+                        name: String(fd.get("name") || ""),
+                        email: String(fd.get("email") || ""),
+                        company: String(fd.get("company") || ""),
+                        role: String(fd.get("role") || ""),
+                        budget: String(fd.get("budget") || ""),
+                        message: String(fd.get("message") || ""),
+                        source: "contact",
+                      },
+                    });
+                    setSent(true);
+                  } catch {
+                    setError("Something went wrong. Please email hello@ceptrex.com.");
+                  } finally {
+                    setSubmitting(false);
+                  }
                 }}
               >
                 <div className="grid sm:grid-cols-2 gap-5">
@@ -80,11 +105,14 @@ function ContactPage() {
                 </div>
                 <button
                   type="submit"
-                  className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-cyan px-7 py-3.5 text-sm font-semibold text-primary-foreground glow-purple hover:scale-[1.02] transition-transform"
+                  disabled={submitting}
+                  className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-cyan px-7 py-3.5 text-sm font-semibold text-primary-foreground glow-purple hover:scale-[1.02] transition-transform disabled:opacity-60"
                 >
-                  Request my free audit
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  {submitting ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
+                  {submitting ? "Sending…" : "Request my free audit"}
+                  {!submitting && <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />}
                 </button>
+                {error && <p className="text-xs text-destructive">{error}</p>}
                 <p className="text-xs text-muted-foreground">
                   ✓ Reply within 4 hours · ✓ No-pitch guarantee · ✓ NDA on request
                 </p>

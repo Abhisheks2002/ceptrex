@@ -13,6 +13,24 @@ import { Pricing } from "@/components/site/Pricing";
 import { FAQ } from "@/components/site/FAQ";
 import { CTA } from "@/components/site/CTA";
 
+const orgJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Ceptrex",
+  url: "https://ceptrex.lovable.app",
+  logo: "https://ceptrex.lovable.app/favicon.ico",
+  description:
+    "Premium AI automation agency building production-grade agents, n8n workflows, WhatsApp AI and voice agents.",
+  sameAs: ["https://www.linkedin.com/", "https://twitter.com/"],
+  contactPoint: [{
+    "@type": "ContactPoint",
+    contactType: "sales",
+    email: "hello@ceptrex.com",
+    areaServed: ["US", "GB", "AE", "EU"],
+    availableLanguage: ["English"],
+  }],
+};
+
 export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
@@ -26,6 +44,10 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Ceptrex — Automate Everything. Scale Infinitely." },
       { property: "og:description", content: "180+ AI systems shipped. $2M+ in client revenue. 28-day delivery." },
     ],
+    scripts: [{
+      type: "application/ld+json",
+      children: JSON.stringify(orgJsonLd),
+    }],
   }),
 });
 

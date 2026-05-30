@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { AIChatWidget } from "./AIChatWidget";
+import { CookieBanner } from "./CookieBanner";
 
 export function SiteLayout({ children }: { children: ReactNode }) {
   return (
@@ -10,6 +11,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       <main className="pt-16">{children}</main>
       <Footer />
       <AIChatWidget />
+      <CookieBanner />
     </div>
   );
 }
