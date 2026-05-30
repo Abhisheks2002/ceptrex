@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
-import { MessageSquare, X, Send, Sparkles } from "lucide-react";
+import { MessageSquare, X, Send } from "lucide-react";
+import ceptrexLogo from "@/assets/ceptrex-logo.png";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
