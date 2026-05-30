@@ -58,7 +58,7 @@ export function AIChatWidget() {
           className="fixed bottom-6 right-6 z-50 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-cyan px-5 py-3.5 text-sm font-semibold text-primary-foreground glow-purple hover:scale-[1.03] transition-transform"
         >
           <MessageSquare className="h-4 w-4" />
-          Ask Nexa
+          Ask Ceptra
         </button>
       )}
 
@@ -66,11 +66,11 @@ export function AIChatWidget() {
         <div className="fixed bottom-6 right-6 z-50 w-[min(380px,calc(100vw-2rem))] h-[min(560px,calc(100vh-3rem))] flex flex-col rounded-2xl border border-border bg-surface/95 backdrop-blur-xl shadow-2xl">
           <div className="flex items-center justify-between p-4 border-b border-border">
             <div className="flex items-center gap-3">
-              <div className="h-9 w-9 rounded-full bg-gradient-to-br from-primary to-cyan flex items-center justify-center">
-                <Sparkles className="h-4 w-4 text-primary-foreground" />
+              <div className="h-9 w-9 rounded-full bg-background flex items-center justify-center overflow-hidden ring-1 ring-border">
+                <img src={ceptrexLogo} alt="Ceptra" className="h-7 w-7 object-contain" />
               </div>
               <div>
-                <div className="text-sm font-semibold">Nexa</div>
+                <div className="text-sm font-semibold">Ceptra</div>
                 <div className="text-xs text-muted-foreground flex items-center gap-1.5">
                   <span className="h-1.5 w-1.5 rounded-full bg-success animate-pulse" />
                   AI consultant · online
