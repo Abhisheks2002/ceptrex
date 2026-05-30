@@ -28,7 +28,7 @@ function reply(input: string): string {
 export function AIChatWidget() {
   const [open, setOpen] = useState(false);
   const [msgs, setMsgs] = useState<Msg[]>([
-    { role: "assistant", content: "Hi — I'm Nexa, Ceptrex's AI consultant. Ask me about AI agents, n8n, WhatsApp AI, pricing or timelines." },
+    { role: "assistant", content: "Hi — I'm Ceptra, Ceptrex's AI consultant. Ask me about AI agents, n8n, WhatsApp AI, pricing or timelines." },
   ]);
   const [input, setInput] = useState("");
   const [typing, setTyping] = useState(false);
