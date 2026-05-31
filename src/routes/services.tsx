@@ -56,6 +56,26 @@ const deepDives = [
     ],
   },
   {
+    name: "Website Building",
+    desc: "Premium, conversion-obsessed Next.js / TanStack websites with SEO, CMS and AI assistants wired in from day one.",
+    bullets: [
+      "Bespoke design system + Figma source",
+      "Headless CMS (Sanity / Payload)",
+      "100/100 Lighthouse, SSR, structured data",
+      "Forms → CRM, AI chat, analytics",
+    ],
+  },
+  {
+    name: "App Development",
+    desc: "Production-grade web & mobile apps (Next.js + React Native) with AI agents, auth, billing and observability baked in.",
+    bullets: [
+      "Full-stack TypeScript (TanStack / Next.js)",
+      "iOS + Android via Expo, one codebase",
+      "Auth, RBAC, Stripe, queues, Sentry",
+      "Native AI core: chat, RAG, agents",
+    ],
+  },
+  {
     name: "AI Strategy & Fractional CAIO",
     desc: "Embedded AI leadership — audit, roadmap, vendor selection, governance and team training.",
     bullets: [
@@ -66,6 +86,7 @@ const deepDives = [
     ],
   },
 ];
+
 
 export const Route = createFileRoute("/services")({
   head: () => ({
