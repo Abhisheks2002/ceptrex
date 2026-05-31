@@ -1,5 +1,6 @@
 import { ArrowRight, Play } from "lucide-react";
 import { Link } from "@tanstack/react-router";
+import ceptrexIcon from "@/assets/ceptrex-icon.png";
 
 export function Hero() {
   return (
@@ -8,6 +9,16 @@ export function Hero() {
       <div className="absolute top-20 left-1/2 -translate-x-1/2 h-[500px] w-[500px] rounded-full bg-primary/20 blur-[120px] pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-6 text-center">
+        <div className="flex justify-center mb-8 animate-[fadeUp_1.2s_ease-out]">
+          <img
+            src={ceptrexIcon}
+            alt="CEPTREX AI Automation Agency Logo"
+            width={120}
+            height={120}
+            className="h-[120px] w-[120px] object-contain drop-shadow-[0_0_40px_rgba(108,99,255,0.45)]"
+          />
+        </div>
+
         <div className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-surface/60 backdrop-blur px-4 py-1.5 text-xs text-muted-foreground mb-8">
           <span className="relative flex h-1.5 w-1.5">
             <span className="absolute inset-0 rounded-full bg-success animate-ping" />
@@ -15,6 +26,7 @@ export function Hero() {
           </span>
           Now accepting Q1 2026 enterprise clients
         </div>
+
 
         <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.02] max-w-5xl mx-auto">
           We Build <span className="text-gradient">AI Agents</span><br />
