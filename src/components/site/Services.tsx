@@ -1,42 +1,15 @@
-import { Bot, Workflow, MessageCircle, Database, Sparkles, LineChart } from "lucide-react";
+import { Bot, Workflow, MessageCircle, Database, Sparkles, LineChart, Globe, Smartphone } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 
 const services = [
-  {
-    icon: Bot,
-    title: "AI Agents",
-    desc: "Autonomous agents that handle sales, support, ops and research 24/7.",
-    tag: "GPT-5 · Claude · Gemini",
-  },
-  {
-    icon: Workflow,
-    title: "n8n Workflows",
-    desc: "Self-hosted automation pipelines connecting your entire SaaS stack.",
-    tag: "500+ integrations",
-  },
-  {
-    icon: MessageCircle,
-    title: "WhatsApp AI",
-    desc: "Conversational agents on the WhatsApp Business API — qualify, book, sell.",
-    tag: "Meta Cloud API",
-  },
-  {
-    icon: Database,
-    title: "CRM Automation",
-    desc: "Pipeline enrichment, lead scoring and outbound on HubSpot & Salesforce.",
-    tag: "AI-native CRM",
-  },
-  {
-    icon: Sparkles,
-    title: "Custom Chatbots",
-    desc: "Brand-trained assistants with retrieval over your knowledge base.",
-    tag: "RAG · Vector DB",
-  },
-  {
-    icon: LineChart,
-    title: "AI Strategy",
-    desc: "Audit, roadmap and implementation for AI-first transformation.",
-    tag: "Fractional CAIO",
-  },
+  { icon: Bot, title: "AI Agents", slug: "ai-agents", desc: "Autonomous agents that handle sales, support, ops and research 24/7.", tag: "GPT-5 · Claude · Gemini" },
+  { icon: Workflow, title: "n8n Workflows", slug: "n8n-automation", desc: "Self-hosted automation pipelines connecting your entire SaaS stack.", tag: "500+ integrations" },
+  { icon: MessageCircle, title: "WhatsApp AI", slug: "whatsapp-automation", desc: "Conversational agents on the WhatsApp Business API — qualify, book, sell.", tag: "Meta Cloud API" },
+  { icon: Database, title: "CRM Automation", slug: "crm-automation", desc: "Pipeline enrichment, lead scoring and outbound on HubSpot & Salesforce.", tag: "AI-native CRM" },
+  { icon: Sparkles, title: "Custom Chatbots", slug: "ai-chatbots", desc: "Brand-trained assistants with retrieval over your knowledge base.", tag: "RAG · Vector DB" },
+  { icon: LineChart, title: "AI Analytics", slug: "ai-analytics", desc: "Predictive dashboards, anomaly detection and AI-generated insights.", tag: "Real-time ML" },
+  { icon: Globe, title: "Website Building", slug: "website-building", desc: "Premium Next.js sites engineered for SEO, conversion and AI integration.", tag: "Next.js · CMS · SSR" },
+  { icon: Smartphone, title: "App Development", slug: "app-development", desc: "Web & mobile apps with AI agents, auth, billing and observability built-in.", tag: "Next.js · Expo · AI-native" },
 ];
 
 export function Services() {
@@ -46,12 +19,13 @@ export function Services() {
         <div className="max-w-2xl">
           <p className="text-sm text-cyan font-mono uppercase tracking-wider mb-3">// Services</p>
           <h2 className="font-display text-4xl md:text-5xl font-bold">
-            Six ways we <span className="text-gradient">automate revenue</span>
+            Eight ways we <span className="text-gradient">automate revenue</span>
           </h2>
           <p className="mt-4 text-muted-foreground text-lg">
-            Productised AI services with fixed scope, fixed timeline and measurable ROI.
+            Productised AI, web and mobile services with fixed scope, fixed timeline and measurable ROI.
           </p>
         </div>
+
 
         <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((s) => (
