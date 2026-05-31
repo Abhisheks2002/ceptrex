@@ -9,12 +9,8 @@ const values = [
   { t: "Pragmatic over hype", d: "We say no to AI when a rules engine is better. Honest scoping beats inflated invoices." },
 ];
 
-const team = [
-  { name: "Erik Lindqvist", role: "CEO & Co-founder", bio: "Ex-Klarna AI lead. Built fraud agents handling $9B/yr." },
-  { name: "Priya Anand", role: "CTO & Co-founder", bio: "Ex-DeepMind, ex-Stripe. Authored 14 papers on agent orchestration." },
-  { name: "Omar Haddad", role: "Head of Delivery (MENA)", bio: "Shipped 40+ WhatsApp AI deployments across UAE & KSA." },
-  { name: "Sofia Reyes", role: "Head of Strategy", bio: "Former McKinsey Digital. Helps clients pick winning use-cases." },
-];
+
+
 
 const offices = [
   { city: "Stockholm", line: "HQ · Engineering", time: "GMT+1" },
@@ -75,24 +71,7 @@ function AboutPage() {
       </section>
 
       <section className="py-20">
-        <div className="mx-auto max-w-6xl px-6">
-          <h2 className="font-display text-3xl md:text-4xl font-bold mb-10">
-            The <span className="text-gradient">founding team</span>
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {team.map((m) => (
-              <div key={m.name} className="rounded-2xl border border-border bg-surface/60 backdrop-blur p-6">
-                <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-primary to-cyan glow-purple mb-5" />
-                <div className="font-display text-lg font-semibold">{m.name}</div>
-                <div className="text-xs text-cyan font-mono uppercase tracking-wider mt-1">{m.role}</div>
-                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{m.bio}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      <section className="py-20">
         <div className="mx-auto max-w-6xl px-6">
           <h2 className="font-display text-3xl md:text-4xl font-bold mb-10">
             Where we <span className="text-gradient">work from</span>

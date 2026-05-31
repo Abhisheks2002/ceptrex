@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import ceptrexLogo from "@/assets/ceptrex-logo.png";
+import { Logo } from "./Logo";
 
 export function Footer() {
   return (
@@ -7,13 +7,17 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid lg:grid-cols-5 gap-10">
           <div className="lg:col-span-2 max-w-sm">
-            <div className="flex items-center gap-2 mb-4">
-              <img src={ceptrexLogo} alt="Ceptrex" className="h-9 w-auto" />
+            <div className="group mb-4 inline-flex opacity-90 hover:opacity-100 transition-opacity">
+              <Logo size={42} />
+            </div>
+            <div className="text-xs uppercase tracking-[0.2em] text-cyan font-mono mb-3">
+              AI Automation Agency
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Automate everything. Scale infinitely. Production-grade AI agents and
-              automation systems for high-growth companies.
+              Automate everything. Scale infinitely. Production-grade AI agents,
+              websites, apps and automation systems for high-growth companies.
             </p>
+
             <div className="mt-5 text-xs text-muted-foreground space-y-1">
               <div>Stockholm · Dubai · New York · London</div>
               <div>hello@ceptrex.com</div>
@@ -26,7 +30,10 @@ export function Footer() {
             ["CRM Automation", "/services/crm-automation"],
             ["Voice AI", "/services/voice-ai"],
             ["AI Analytics", "/services/ai-analytics"],
+            ["Website Building", "/services/website-building"],
+            ["App Development", "/services/app-development"],
           ]} />
+
           <FooterCol title="Industries" links={[
             ["Healthcare", "/industries/healthcare"],
             ["Real Estate", "/industries/real-estate"],
