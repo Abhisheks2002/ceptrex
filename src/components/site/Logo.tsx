@@ -1,43 +1,42 @@
+import ceptrexLockup from "@/assets/ceptrex-logo.png";
 import ceptrexIcon from "@/assets/ceptrex-icon.png";
 
 type LogoProps = {
-  size?: number;
+  /** Pixel height of the logo. Width auto-scales to preserve aspect ratio. */
+  height?: number;
+  /** When false, renders the icon mark only (no wordmark). */
   showWordmark?: boolean;
   className?: string;
-  wordmarkClassName?: string;
+  priority?: boolean;
 };
 
 /**
- * Ceptrex brand lockup: gradient hexagon "C" icon + CEPTREX wordmark.
- * Wordmark is rendered as live text so it stays crisp at any size and
- * adapts to the surface color.
+ * Official Ceptrex logo lockup — uses the brand artwork exactly as supplied.
+ * Aspect ratio is preserved automatically; only height is controlled.
  */
 export function Logo({
-  size = 36,
+  height = 40,
   showWordmark = true,
   className = "",
-  wordmarkClassName = "",
+  priority = false,
 }: LogoProps) {
+  const src = showWordmark ? ceptrexLockup : ceptrexIcon;
+  // Source artwork is 1632x352 (lockup) / 352x352 (icon).
+  const aspect = showWordmark ? 1632 / 352 : 1;
+  const width = Math.round(height * aspect);
+
   return (
-    <span className={`inline-flex items-center gap-2.5 ${className}`}>
-      <img
-        src={ceptrexIcon}
-        alt="Ceptrex"
-        width={size}
-        height={size}
-        loading="eager"
-        decoding="async"
-        className="object-contain shrink-0 drop-shadow-[0_0_18px_rgba(108,99,255,0.35)] transition-transform duration-300 group-hover:scale-110"
-        style={{ width: size, height: size }}
-      />
-      {showWordmark && (
-        <span
-          className={`font-display font-semibold tracking-[0.22em] text-foreground ${wordmarkClassName}`}
-          style={{ fontSize: Math.round(size * 0.48) }}
-        >
-          CEPTREX
-        </span>
-      )}
-    </span>
+    <img
+      src={src}
+      alt="CEPTREX AI Automation Agency Logo"
+      width={width}
+      height={height}
+      loading={priority ? "eager" : "lazy"}
+      decoding="async"
+      fetchPriority={priority ? "high" : "auto"}
+      className={`object-contain select-none drop-shadow-[0_0_22px_rgba(108,99,255,0.25)] transition-opacity duration-200 ${className}`}
+      style={{ height, width: "auto" }}
+      draggable={false}
+    />
   );
 }
