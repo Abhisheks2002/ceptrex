@@ -34,7 +34,7 @@ export function Hero() {
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <Link
-            to="/contact"
+            to="/book-call"
             className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-cyan px-7 py-3.5 text-sm font-semibold text-primary-foreground glow-purple hover:scale-[1.02] transition-transform"
           >
             Get Your Free AI Audit

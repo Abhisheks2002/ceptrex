@@ -37,13 +37,13 @@ export function CalBooking({ calLink = "ceptrex/30min", className = "" }: Props)
 
   return (
     <div
-      className={`rounded-2xl overflow-hidden border border-border bg-background/40 backdrop-blur ${className}`}
-      style={{ minHeight: 640 }}
+      className={`rounded-2xl border border-border bg-background/40 backdrop-blur ${className}`}
+      style={{ height: "80vh", minHeight: 720, maxHeight: 980, overflowY: "auto", overflowX: "hidden" }}
     >
       <Cal
         namespace="ceptrex-booking"
         calLink={calLink}
-        style={{ width: "100%", height: "100%", minHeight: 640, overflow: "auto" }}
+        style={{ width: "100%", height: "100%", overflow: "scroll" }}
         config={{ layout: "month_view", theme: "dark" }}
       />
     </div>
