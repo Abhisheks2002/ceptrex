@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
 import { SiteLayout, PageHeader } from "@/components/site/SiteLayout";
-import { ArrowRight, Mail, MessageCircle, Calendar, Loader2 } from "lucide-react";
+import { ArrowRight, Mail, Calendar, Loader2 } from "lucide-react";
 import { submitLead } from "@/lib/leads.functions";
 
 export const Route = createFileRoute("/contact")({
@@ -125,8 +125,8 @@ function ContactPage() {
               icon={Calendar}
               title="Book direct"
               line="Pick a 30-min slot on our shared calendar"
-              cta="cal.com/ceptrex"
-              href="https://cal.com"
+              cta="Book a Call"
+              href="/book-call"
             />
             <ContactCard
               icon={Mail}
@@ -134,13 +134,6 @@ function ContactPage() {
               line="A senior engineer will reply"
               cta="ceptrexai@gmail.com"
               href="mailto:ceptrexai@gmail.com"
-            />
-            <ContactCard
-              icon={MessageCircle}
-              title="WhatsApp"
-              line="UAE & MENA clients — fastest reply"
-              cta="+971 4 000 0000"
-              href="https://wa.me/97140000000"
             />
             <div className="rounded-2xl border border-border bg-surface/60 backdrop-blur p-6">
               <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-3">
