@@ -45,7 +45,7 @@ function BookCall() {
             <Item text="1-page roadmap delivered within 48h" />
             <Item text="No-pitch guarantee" />
             <div className="rounded-2xl border border-border bg-surface/60 p-5 text-sm text-muted-foreground">
-              Prefer email? Reach us at <a className="text-cyan" href="mailto:hello@ceptrex.com">hello@ceptrex.com</a> — we reply within 4 hours.
+              Prefer email? Reach us at <a className="text-cyan" href="mailto:ceptrexai@gmail.com">ceptrexai@gmail.com</a> — we reply within 4 hours.
             </div>
           </aside>
           <div className="lg:col-span-3">

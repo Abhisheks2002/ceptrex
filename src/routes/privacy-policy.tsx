@@ -29,7 +29,7 @@ function Privacy() {
           <H>5. Retention</H>
           <p>Lead/contact data: 24 months from last interaction. Project data: per the engagement DPA, typically 90 days post-termination.</p>
           <H>6. Contact</H>
-          <p>Ceptrex · hello@ceptrex.com · Stockholm, SE — Dubai, AE — New York, US.</p>
+          <p>Ceptrex · ceptrexai@gmail.com · Stockholm, SE — Dubai, AE — New York, US.</p>
         </div>
       </section>
     </SiteLayout>

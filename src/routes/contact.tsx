@@ -64,7 +64,7 @@ function ContactPage() {
                     });
                     setSent(true);
                   } catch {
-                    setError("Something went wrong. Please email hello@ceptrex.com.");
+                    setError("Something went wrong. Please email ceptrexai@gmail.com.");
                   } finally {
                     setSubmitting(false);
                   }
@@ -132,8 +132,8 @@ function ContactPage() {
               icon={Mail}
               title="Email"
               line="A senior engineer will reply"
-              cta="hello@ceptrex.com"
-              href="mailto:hello@ceptrex.com"
+              cta="ceptrexai@gmail.com"
+              href="mailto:ceptrexai@gmail.com"
             />
             <ContactCard
               icon={MessageCircle}
