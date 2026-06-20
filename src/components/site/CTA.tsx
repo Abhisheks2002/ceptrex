@@ -25,10 +25,10 @@ export function CTA() {
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
               <a
-                href="mailto:ceptrexai@gmail.com"
+                href="mailto:hello@ceptrex.com"
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
-                or email ceptrexai@gmail.com →
+                or email hello@ceptrex.com →
               </a>
             </div>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-xs text-muted-foreground">

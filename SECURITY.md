@@ -2,7 +2,7 @@
 
 ## Reporting a Vulnerability
 
-Email **ceptrexai@gmail.com** with the subject `SECURITY: <short title>`. Do **not** open a public GitHub issue for security reports. We acknowledge within 48 hours and aim to remediate critical issues within 7 days.
+Email **hello@ceptrex.com** with the subject `SECURITY: <short title>`. Do **not** open a public GitHub issue for security reports. We acknowledge within 48 hours and aim to remediate critical issues within 7 days.
 
 ---
 

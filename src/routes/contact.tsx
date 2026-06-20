@@ -64,7 +64,7 @@ function ContactPage() {
                     });
                     setSent(true);
                   } catch {
-                    setError("Something went wrong. Please email ceptrexai@gmail.com.");
+                    setError("Something went wrong. Please email hello@ceptrex.com.");
                   } finally {
                     setSubmitting(false);
                   }
@@ -132,8 +132,8 @@ function ContactPage() {
               icon={Mail}
               title="Email"
               line="A senior engineer will reply"
-              cta="ceptrexai@gmail.com"
-              href="mailto:ceptrexai@gmail.com"
+              cta="hello@ceptrex.com"
+              href="mailto:hello@ceptrex.com"
             />
             <div className="rounded-2xl border border-border bg-surface/60 backdrop-blur p-6">
               <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-3">

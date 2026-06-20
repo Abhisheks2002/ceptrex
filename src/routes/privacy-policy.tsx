@@ -25,11 +25,11 @@ function Privacy() {
           <H>3. Sharing</H>
           <p>We use sub-processors (Supabase, Vercel-class hosting, Resend, OpenAI/Anthropic for our tools). All are GDPR-aligned. Client project data lives in your cloud whenever possible.</p>
           <H>4. Your rights</H>
-          <p>GDPR & CCPA rights apply: access, rectification, deletion, portability and objection. Email <a href="mailto:privacy@ceptrex.com" className="text-cyan">privacy@ceptrex.com</a> to exercise.</p>
+          <p>GDPR & CCPA rights apply: access, rectification, deletion, portability and objection. Email <a href="mailto:hello@ceptrex.com" className="text-cyan">hello@ceptrex.com</a> to exercise.</p>
           <H>5. Retention</H>
           <p>Lead/contact data: 24 months from last interaction. Project data: per the engagement DPA, typically 90 days post-termination.</p>
           <H>6. Contact</H>
-          <p>Ceptrex · ceptrexai@gmail.com · Stockholm, SE — Dubai, AE — New York, US.</p>
+          <p>Ceptrex · hello@ceptrex.com · Stockholm, SE — Dubai, AE — New York, US.</p>
         </div>
       </section>
     </SiteLayout>

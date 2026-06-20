@@ -172,5 +172,5 @@ Proprietary © Ceptrex. All rights reserved.
 
 ## 📬 Contact
 
-- Email: **ceptrexai@gmail.com**
+- Email: **hello@ceptrex.com**
 - Book a call: <https://ceptrex.com/book-call>
