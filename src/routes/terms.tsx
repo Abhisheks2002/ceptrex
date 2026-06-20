@@ -31,7 +31,7 @@ function Terms() {
           <H>6. Governing law</H>
           <p>These Terms are governed by the laws of Sweden, with venue in Stockholm District Court.</p>
           <H>7. Contact</H>
-          <p>legal@ceptrex.com</p>
+          <p>hello@ceptrex.com</p>
         </div>
       </section>
     </SiteLayout>

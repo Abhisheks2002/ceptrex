@@ -13,7 +13,7 @@ All notable changes to this project. Format: [Keep a Changelog](https://keepacha
 - "Book a Call" CTA in Hero → `/book-call`.
 
 ### Changed
-- All contact emails unified to `ceptrexai@gmail.com`.
+- All contact emails unified to `hello@ceptrex.com`.
 - Contact page "Book direct" routes to `/book-call`.
 
 ### Removed

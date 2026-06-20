@@ -17,7 +17,7 @@ const KB: { match: RegExp; reply: string }[] = [
   { match: /n8n|automation/i, reply: "We deploy self-hosted n8n in your VPC, Git-versioned, with 24/7 monitoring. Check /n8n-projects for 24 production examples." },
   { match: /voice|phone|call/i, reply: "Voice agents run on Vapi + ElevenLabs with sub-300ms latency. Native EHR & CRM integrations. Starting at $6,950." },
   { match: /healthcare|hipaa|clinic/i, reply: "Yes — we've shipped voice receptionists and patient-intake agents for clinic groups. See /industries/healthcare for our HIPAA-aware approach." },
-  { match: /book|call|demo|audit/i, reply: "Best next step is our free 30-min AI audit. Head to /book-call and pick a slot — or email ceptrexai@gmail.com." },
+  { match: /book|call|demo|audit/i, reply: "Best next step is our free 30-min AI audit. Head to /book-call and pick a slot — or email hello@ceptrex.com." },
 ];
 
 function reply(input: string): string {

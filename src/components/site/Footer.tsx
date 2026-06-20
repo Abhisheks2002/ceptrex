@@ -20,7 +20,7 @@ export function Footer() {
 
             <div className="mt-5 text-xs text-muted-foreground space-y-1">
               <div>Stockholm · Dubai · New York · London</div>
-              <div>ceptrexai@gmail.com</div>
+              <div>hello@ceptrex.com</div>
             </div>
           </div>
           <FooterCol title="Services" links={[

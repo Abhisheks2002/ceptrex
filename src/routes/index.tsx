@@ -25,7 +25,7 @@ const orgJsonLd = {
   contactPoint: [{
     "@type": "ContactPoint",
     contactType: "sales",
-    email: "ceptrexai@gmail.com",
+    email: "hello@ceptrex.com",
     areaServed: ["US", "GB", "AE", "EU"],
     availableLanguage: ["English"],
   }],
