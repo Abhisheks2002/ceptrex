@@ -20,7 +20,30 @@ export const Route = createFileRoute("/ai-audit")({
 
 function Audit() {
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [form, setForm] = useState({ name: "", company: "", email: "", revenue: "", stack: "", goal: "" });
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setSubmitting(true);
+    const { error } = await supabase.from("audit_requests").insert({
+      name: form.name.trim(),
+      company: form.company.trim(),
+      email: form.email.trim(),
+      revenue: form.revenue.trim() || null,
+      stack: form.stack.trim() || null,
+      goal: form.goal.trim() || null,
+      source: "ai-audit",
+      user_agent: typeof navigator !== "undefined" ? navigator.userAgent.slice(0, 500) : null,
+    });
+    setSubmitting(false);
+    if (error) {
+      toast.error("Couldn't submit — please try again or email hello@ceptrex.com");
+      return;
+    }
+    setSent(true);
+  }
+
   return (
     <SiteLayout>
       <PageHeader eyebrow="Free AI Audit" title="A 30-min audit that" highlight="actually finds money" subtitle="We'll map your workflows live and ship a 1-page automation roadmap within 48 hours. No pitch, no fluff." />
