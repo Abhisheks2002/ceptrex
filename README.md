@@ -6,7 +6,7 @@
 
 CEPTREX is a production-ready marketing + lead-generation platform for an AI automation agency. It ships with a portfolio, case studies, services catalog, ROI calculator, Cal.com booking, contact pipeline, and a serverless backend running on Cloudflare Workers.
 
-> Live: <https://ceptrex.lovable.app>
+> Live: <https://ceptrex.com>
 
 ---
 
@@ -173,4 +173,4 @@ Proprietary © Ceptrex. All rights reserved.
 ## 📬 Contact
 
 - Email: **ceptrexai@gmail.com**
-- Book a call: <https://ceptrex.lovable.app/book-call>
+- Book a call: <https://ceptrex.com/book-call>
