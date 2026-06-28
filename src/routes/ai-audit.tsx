@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Check, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
-
+import { z } from "zod";
 
 export const Route = createFileRoute("/ai-audit")({
   component: Audit,
@@ -18,21 +18,57 @@ export const Route = createFileRoute("/ai-audit")({
   }),
 });
 
+const auditSchema = z.object({
+  name: z.string().trim().min(1).max(120),
+  company: z.string().trim().min(1).max(160),
+  email: z.string().trim().email().max(200),
+  website: z.string().trim().max(200).optional().or(z.literal("")),
+  industry: z.string().trim().max(120).optional().or(z.literal("")),
+  employee_count: z.string().trim().max(60).optional().or(z.literal("")),
+  revenue: z.string().trim().max(120).optional().or(z.literal("")),
+  stack: z.string().trim().max(400).optional().or(z.literal("")),
+  biggest_problem: z.string().trim().max(2000).optional().or(z.literal("")),
+  goal: z.string().trim().max(2000).optional().or(z.literal("")),
+  preferred_contact: z.string().trim().max(60).optional().or(z.literal("")),
+});
+
 function Audit() {
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-  const [form, setForm] = useState({ name: "", company: "", email: "", revenue: "", stack: "", goal: "" });
+  const [form, setForm] = useState({
+    name: "",
+    company: "",
+    email: "",
+    website: "",
+    industry: "",
+    employee_count: "",
+    revenue: "",
+    stack: "",
+    biggest_problem: "",
+    goal: "",
+    preferred_contact: "Email",
+  });
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    const parsed = auditSchema.safeParse(form);
+    if (!parsed.success) {
+      toast.error(parsed.error.issues[0]?.message ?? "Please check the form");
+      return;
+    }
     setSubmitting(true);
     const { error } = await supabase.from("audit_requests").insert({
-      name: form.name.trim(),
-      company: form.company.trim(),
-      email: form.email.trim(),
-      revenue: form.revenue.trim() || null,
-      stack: form.stack.trim() || null,
-      goal: form.goal.trim() || null,
+      name: parsed.data.name,
+      company: parsed.data.company,
+      email: parsed.data.email,
+      website: parsed.data.website || null,
+      industry: parsed.data.industry || null,
+      employee_count: parsed.data.employee_count || null,
+      revenue: parsed.data.revenue || null,
+      stack: parsed.data.stack || null,
+      biggest_problem: parsed.data.biggest_problem || null,
+      goal: parsed.data.goal || null,
+      preferred_contact: parsed.data.preferred_contact || null,
       source: "ai-audit",
       user_agent: typeof navigator !== "undefined" ? navigator.userAgent.slice(0, 500) : null,
     });
@@ -41,6 +77,7 @@ function Audit() {
       toast.error("Couldn't submit — please try again or email hello@ceptrex.com");
       return;
     }
+    toast.success("Audit request received. We'll reach out within 4 hours.");
     setSent(true);
   }
 
@@ -71,12 +108,35 @@ function Audit() {
               </div>
             ) : (
               <>
-                <Input label="Your name" value={form.name} onChange={(v) => setForm({ ...form, name: v })} />
-                <Input label="Company" value={form.company} onChange={(v) => setForm({ ...form, company: v })} />
-                <Input label="Work email" type="email" value={form.email} onChange={(v) => setForm({ ...form, email: v })} />
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <Input label="Your name" value={form.name} onChange={(v) => setForm({ ...form, name: v })} required />
+                  <Input label="Company" value={form.company} onChange={(v) => setForm({ ...form, company: v })} required />
+                </div>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <Input label="Work email" type="email" value={form.email} onChange={(v) => setForm({ ...form, email: v })} required />
+                  <Input label="Website" value={form.website} onChange={(v) => setForm({ ...form, website: v })} placeholder="https://…" />
+                </div>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <Input label="Industry" value={form.industry} onChange={(v) => setForm({ ...form, industry: v })} placeholder="SaaS, Real Estate…" />
+                  <Input label="Employees" value={form.employee_count} onChange={(v) => setForm({ ...form, employee_count: v })} placeholder="1-10, 11-50, 51-200…" />
+                </div>
                 <Input label="Annual revenue" value={form.revenue} onChange={(v) => setForm({ ...form, revenue: v })} placeholder="$1M–$10M" />
                 <Input label="Current stack (3-5 tools)" value={form.stack} onChange={(v) => setForm({ ...form, stack: v })} placeholder="HubSpot, Slack, Notion..." />
+                <Textarea label="Biggest operational problem right now?" value={form.biggest_problem} onChange={(v) => setForm({ ...form, biggest_problem: v })} />
                 <Textarea label="What would you automate first?" value={form.goal} onChange={(v) => setForm({ ...form, goal: v })} />
+                <div>
+                  <label className="block text-xs uppercase tracking-wider text-muted-foreground mb-1.5">Preferred contact</label>
+                  <select
+                    value={form.preferred_contact}
+                    onChange={(e) => setForm({ ...form, preferred_contact: e.target.value })}
+                    className="w-full bg-surface-elevated border border-border rounded-lg px-4 py-2.5 text-sm outline-none focus:border-primary/60"
+                  >
+                    <option>Email</option>
+                    <option>Phone</option>
+                    <option>WhatsApp</option>
+                    <option>Slack</option>
+                  </select>
+                </div>
                 <button
                   type="submit"
                   disabled={submitting}
@@ -106,12 +166,12 @@ function Item({ title, desc }: { title: string; desc: string }) {
   );
 }
 
-function Input({ label, value, onChange, type = "text", placeholder }: { label: string; value: string; onChange: (v: string) => void; type?: string; placeholder?: string }) {
+function Input({ label, value, onChange, type = "text", placeholder, required }: { label: string; value: string; onChange: (v: string) => void; type?: string; placeholder?: string; required?: boolean }) {
   return (
     <div>
       <label className="block text-xs uppercase tracking-wider text-muted-foreground mb-1.5">{label}</label>
       <input
-        required
+        required={required}
         type={type}
         value={value}
         placeholder={placeholder}
@@ -127,7 +187,6 @@ function Textarea({ label, value, onChange }: { label: string; value: string; on
     <div>
       <label className="block text-xs uppercase tracking-wider text-muted-foreground mb-1.5">{label}</label>
       <textarea
-        required
         rows={4}
         value={value}
         onChange={(e) => onChange(e.target.value)}
