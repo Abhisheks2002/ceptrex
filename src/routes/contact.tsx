@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
 import { SiteLayout, PageHeader } from "@/components/site/SiteLayout";
 import { ArrowRight, Mail, Calendar, Loader2 } from "lucide-react";
-import { submitLead } from "@/lib/leads.functions";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
+import { z } from "zod";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -17,11 +18,29 @@ export const Route = createFileRoute("/contact")({
   component: ContactPage,
 });
 
+const contactSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(120),
+  email: z.string().trim().email("Enter a valid email").max(200),
+  company: z.string().trim().max(160).optional().or(z.literal("")),
+  role: z.string().trim().max(120).optional().or(z.literal("")),
+  budget: z.string().trim().max(120).optional().or(z.literal("")),
+  message: z.string().trim().max(4000).optional().or(z.literal("")),
+});
+
+function readUtm() {
+  if (typeof window === "undefined") return {};
+  const p = new URLSearchParams(window.location.search);
+  return {
+    utm_source: p.get("utm_source") || undefined,
+    utm_medium: p.get("utm_medium") || undefined,
+    utm_campaign: p.get("utm_campaign") || undefined,
+  };
+}
+
 function ContactPage() {
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const send = useServerFn(submitLead);
 
   return (
     <SiteLayout>
@@ -48,26 +67,44 @@ function ContactPage() {
                 onSubmit={async (e) => {
                   e.preventDefault();
                   setError(null);
-                  setSubmitting(true);
                   const fd = new FormData(e.currentTarget);
-                  try {
-                    await send({
-                      data: {
-                        name: String(fd.get("name") || ""),
-                        email: String(fd.get("email") || ""),
-                        company: String(fd.get("company") || ""),
-                        role: String(fd.get("role") || ""),
-                        budget: String(fd.get("budget") || ""),
-                        message: String(fd.get("message") || ""),
-                        source: "contact",
-                      },
-                    });
-                    setSent(true);
-                  } catch {
-                    setError("Something went wrong. Please email hello@ceptrex.com.");
-                  } finally {
-                    setSubmitting(false);
+                  const parsed = contactSchema.safeParse({
+                    name: fd.get("name"),
+                    email: fd.get("email"),
+                    company: fd.get("company"),
+                    role: fd.get("role"),
+                    budget: fd.get("budget"),
+                    message: fd.get("message"),
+                  });
+                  if (!parsed.success) {
+                    const first = parsed.error.issues[0]?.message ?? "Please check the form";
+                    setError(first);
+                    toast.error(first);
+                    return;
                   }
+                  setSubmitting(true);
+                  const utm = readUtm();
+                  const { error: insertErr } = await supabase.from("contact_leads").insert({
+                    name: parsed.data.name,
+                    email: parsed.data.email,
+                    company: parsed.data.company || null,
+                    budget: parsed.data.budget || null,
+                    service: parsed.data.role || null,
+                    message: parsed.data.message || null,
+                    source: "contact",
+                    browser: typeof navigator !== "undefined" ? navigator.userAgent.slice(0, 500) : null,
+                    utm_source: utm.utm_source ?? null,
+                    utm_medium: utm.utm_medium ?? null,
+                    utm_campaign: utm.utm_campaign ?? null,
+                  });
+                  setSubmitting(false);
+                  if (insertErr) {
+                    setError("Couldn't submit — please email hello@ceptrex.com");
+                    toast.error("Submission failed. Please try again.");
+                    return;
+                  }
+                  toast.success("Thanks — we'll be in touch shortly.");
+                  setSent(true);
                 }}
               >
                 <div className="grid sm:grid-cols-2 gap-5">
@@ -75,7 +112,7 @@ function ContactPage() {
                   <Field label="Work email" name="email" type="email" placeholder="marcus@company.com" required />
                 </div>
                 <div className="grid sm:grid-cols-2 gap-5">
-                  <Field label="Company" name="company" placeholder="Vantor SaaS" required />
+                  <Field label="Company" name="company" placeholder="Vantor SaaS" />
                   <Field label="Role" name="role" placeholder="VP Sales" />
                 </div>
                 <div>
@@ -106,7 +143,7 @@ function ContactPage() {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-cyan px-7 py-3.5 text-sm font-semibold text-primary-foreground glow-purple hover:scale-[1.02] transition-transform disabled:opacity-60"
+                  className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-cyan px-7 py-3.5 text-sm font-semibold text-primary-foreground glow-purple hover:scale-[1.02] transition-transform disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   {submitting ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
                   {submitting ? "Sending…" : "Request my free audit"}

@@ -16,40 +16,127 @@ export type Database = {
     Tables: {
       audit_requests: {
         Row: {
+          audit_status: Database["public"]["Enums"]["audit_status"]
+          automation_goals: string | null
+          biggest_problem: string | null
           company: string
           created_at: string
           email: string
+          employee_count: string | null
           goal: string | null
           id: string
+          industry: string | null
           name: string
+          notes: string | null
+          preferred_contact: string | null
           revenue: string | null
           source: string
           stack: string | null
           user_agent: string | null
+          website: string | null
         }
         Insert: {
+          audit_status?: Database["public"]["Enums"]["audit_status"]
+          automation_goals?: string | null
+          biggest_problem?: string | null
           company: string
           created_at?: string
           email: string
+          employee_count?: string | null
           goal?: string | null
           id?: string
+          industry?: string | null
           name: string
+          notes?: string | null
+          preferred_contact?: string | null
           revenue?: string | null
           source?: string
           stack?: string | null
           user_agent?: string | null
+          website?: string | null
         }
         Update: {
+          audit_status?: Database["public"]["Enums"]["audit_status"]
+          automation_goals?: string | null
+          biggest_problem?: string | null
           company?: string
           created_at?: string
           email?: string
+          employee_count?: string | null
           goal?: string | null
           id?: string
+          industry?: string | null
           name?: string
+          notes?: string | null
+          preferred_contact?: string | null
           revenue?: string | null
           source?: string
           stack?: string | null
           user_agent?: string | null
+          website?: string | null
+        }
+        Relationships: []
+      }
+      contact_leads: {
+        Row: {
+          browser: string | null
+          budget: string | null
+          company: string | null
+          country: string | null
+          created_at: string
+          email: string
+          id: string
+          ip_address: string | null
+          message: string | null
+          name: string
+          notes: string | null
+          phone: string | null
+          service: string | null
+          source: string
+          status: Database["public"]["Enums"]["lead_status"]
+          utm_campaign: string | null
+          utm_medium: string | null
+          utm_source: string | null
+        }
+        Insert: {
+          browser?: string | null
+          budget?: string | null
+          company?: string | null
+          country?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          ip_address?: string | null
+          message?: string | null
+          name: string
+          notes?: string | null
+          phone?: string | null
+          service?: string | null
+          source?: string
+          status?: Database["public"]["Enums"]["lead_status"]
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+        }
+        Update: {
+          browser?: string | null
+          budget?: string | null
+          company?: string | null
+          country?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          ip_address?: string | null
+          message?: string | null
+          name?: string
+          notes?: string | null
+          phone?: string | null
+          service?: string | null
+          source?: string
+          status?: Database["public"]["Enums"]["lead_status"]
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
         }
         Relationships: []
       }
@@ -83,6 +170,14 @@ export type Database = {
     }
     Enums: {
       app_role: "admin" | "moderator" | "user"
+      audit_status: "NEW" | "REVIEWING" | "SCHEDULED" | "COMPLETED" | "CLOSED"
+      lead_status:
+        | "NEW"
+        | "CONTACTED"
+        | "QUALIFIED"
+        | "PROPOSAL"
+        | "CLIENT"
+        | "LOST"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -211,6 +306,15 @@ export const Constants = {
   public: {
     Enums: {
       app_role: ["admin", "moderator", "user"],
+      audit_status: ["NEW", "REVIEWING", "SCHEDULED", "COMPLETED", "CLOSED"],
+      lead_status: [
+        "NEW",
+        "CONTACTED",
+        "QUALIFIED",
+        "PROPOSAL",
+        "CLIENT",
+        "LOST",
+      ],
     },
   },
 } as const
