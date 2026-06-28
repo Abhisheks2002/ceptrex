@@ -1,10 +1,11 @@
 import type { ReactNode } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { LayoutDashboard, Users, BarChart3, LogOut, Sparkles, ShieldCheck } from "lucide-react";
+import { LayoutDashboard, Users, BarChart3, LogOut, Sparkles, ShieldCheck, Sparkle } from "lucide-react";
 
 const navItems = [
   { to: "/dashboard", label: "Overview", icon: LayoutDashboard, exact: true },
-  { to: "/dashboard/leads", label: "Leads", icon: Users, exact: false },
+  { to: "/dashboard/leads", label: "Contact Leads", icon: Users, exact: false },
+  { to: "/dashboard/audits", label: "Audit Requests", icon: Sparkle, exact: false },
   { to: "/dashboard/analytics", label: "Analytics", icon: BarChart3, exact: false },
 ] as const;
 
